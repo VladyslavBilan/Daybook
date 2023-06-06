@@ -1993,7 +1993,6 @@ id callMeasure
 id cancel_action
 id cancel_button
 id carryVelocity
-id category
 id center
 id center_horizontal
 id center_vertical
@@ -2292,7 +2291,6 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
-id source
 id south
 id spacer
 id special_effects_controller_view_tag
@@ -2543,7 +2541,6 @@ layout posts_item
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
-layout spinner_item_layout
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_chip_zero_corner_radius

@@ -16,51 +16,18 @@
         android:textColor="#EF0101"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="92dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="HardcodedText,MissingConstraints"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="16dp" />
 
-    <TextView
-        android:id="@+id/source"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#534255"
-        android:paddingLeft="6sp"
-        android:paddingTop="1sp"
-        android:paddingRight="6sp"
-        android:paddingBottom="1sp"
-        android:text="Day"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/removeButton"
-        app:layout_constraintHorizontal_bias="0.033"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="85dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="1dp"
-        android:background="#f2b183"
-        android:paddingLeft="6sp"
-        android:paddingTop="1sp"
-        android:paddingRight="6sp"
-        android:paddingBottom="1sp"
-        android:text="Book"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/source"
-        app:layout_constraintVertical_bias="0.075"
-        tools:layout_editor_absoluteX="12dp"
-        tools:ignore="MissingConstraints" />
     <Button
         android:id="@+id/removeButton"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:background="#8e9dc7"
         android:text="x"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
