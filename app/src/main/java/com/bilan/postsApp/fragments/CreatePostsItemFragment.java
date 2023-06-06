@@ -46,24 +46,19 @@ public class CreatePostsItemFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Spinner spinner = view.findViewById(spinnerCategory);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this.getContext(),
                 spinner_item_layout
         );
         adapter.setDropDownViewResource(simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+
         Button submitButton = view.findViewById(buttonSubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText title = view.findViewById(editTextTitle);
                 EditText description = view.findViewById(editTextDescription);
-                Spinner category = view.findViewById(spinnerCategory);
-                EditText imgUrl = view.findViewById(editTextImgUrl);
-                EditText source = view.findViewById(editTextSource);
-                String selectedItemValue = category.getSelectedItem().toString();
-                int categoryId = databaseHelper.getCategoryIdByName(selectedItemValue);
                 databaseHelper.addNote(
                         title.getText().toString(),
                         description.getText().toString()
@@ -72,8 +67,6 @@ public class CreatePostsItemFragment extends Fragment {
                 title.clearComposingText();
                 title.clearComposingText();
                 description.clearComposingText();
-                imgUrl.clearComposingText();
-                source.clearComposingText();
                 requireActivity().onBackPressed();
             }
         });
