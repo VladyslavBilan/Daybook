@@ -89,7 +89,7 @@ public class DayBookListFragment extends Fragment implements OnRecyclerViewItemC
         if (searchTextStr.equals("")) {
             adapter.setPostsList(databaseHelper.loadAllNote());
         } else {
-            List<DaybooksItem> foundArticles = databaseHelper.getPostsByTitle(searchText.getText().toString());
+            List<DaybooksItem> foundArticles = databaseHelper.getNoteByTitle(searchText.getText().toString());
             adapter.setPostsList(foundArticles);
         }
         adapter.notifyDataSetChanged();

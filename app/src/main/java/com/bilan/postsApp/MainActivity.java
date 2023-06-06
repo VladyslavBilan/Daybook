@@ -3,6 +3,7 @@ package com.bilan.postsApp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
+
 import android.os.Bundle;
 
 import static com.bilan.postsApp.R.id.nav_host_fragment;

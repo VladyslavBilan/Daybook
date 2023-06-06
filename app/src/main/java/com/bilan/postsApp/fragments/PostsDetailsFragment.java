@@ -19,6 +19,7 @@ import static com.bilan.postsApp.R.id.*;
 
 public class PostsDetailsFragment extends Fragment {
     private DaybooksItem item;
+
     public PostsDetailsFragment() {
         // Required empty public constructor
     }
@@ -33,7 +34,7 @@ public class PostsDetailsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_posts_details, container, false);
         Bundle args = getArguments();
         if (args != null) {
-            this.item = new DaybooksItem(item.getId(), item.getTitle(), item.getDescription());
+            this.item = new DaybooksItem();
             item.setTitle(args.getString("title"));
             item.setDescription(args.getString("description"));
             TextView title = view.findViewById(posts_title);

@@ -11,6 +11,9 @@ public class DaybooksItem {
 
     private LocalDateTime dateTime;
 
+    public DaybooksItem(){
+    }
+
     public DaybooksItem(int id, String title, String description) {
         this.id = id;
         this.title = title;

@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String dropNoteTableQuery = "DROP TABLE IF EXISTS Posts";
+        String dropNoteTableQuery = "DROP TABLE IF EXISTS Note";
         db.execSQL(dropNoteTableQuery);
         onCreate(db);
     }
@@ -36,8 +36,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public List<DaybooksItem> loadAllNote() {
         List<DaybooksItem> daybook = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
-        String query = "SELECT Note.id, Note.title, Note.source, Posts.image_url, Posts.description " +
-                "FROM Posts ";
+        String query = "SELECT Note.id, Note.title, Note.description " +
+                "FROM Note ";
         Cursor cursor = database.rawQuery(query, null);
 
         if (cursor != null && cursor.moveToFirst()) {
@@ -70,38 +70,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("Note", null, values);
     }
 
-    public void addCategory(String categoryName) {
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("name", categoryName);
-        db.insert("Categories", null, values);
-    }
-
-    @SuppressLint("Range")
-    public int getCategoryIdByName(String categoryName) {
-        SQLiteDatabase db = getReadableDatabase();
-        int categoryId = -1;
-        String[] projection = {"id"};
-        String selection = "name = ?";
-        String[] selectionArgs = {categoryName};
-        Cursor cursor = db.query("Categories", projection, selection, selectionArgs, null, null, null);
-        if (cursor != null && cursor.moveToFirst()) {
-            categoryId = cursor.getInt(cursor.getColumnIndex("id"));
-        }
-        if (cursor != null) {
-            cursor.close();
-        }
-        return categoryId;
-    }
-
-    public List<DaybooksItem> getPostsByTitle(String searchTitle) {
-        List<DaybooksItem> postsList = new ArrayList<>();
+    public List<DaybooksItem> getNoteByTitle(String searchTitle) {
+        List<DaybooksItem> daybookList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         String query =
-                "SELECT Posts.id, Posts.title, Posts.source, Posts.image_url, Posts.description, Categories.name AS category_name " +
+                "SELECT Note.id, Note.title, Posts.description" +
                 "FROM Posts " +
-                "JOIN Categories ON Posts.category_id = Categories.id " +
-                "WHERE Posts.title LIKE ?";
+                "WHERE Note.title LIKE ?";
         String[] selectionArgs = {"%" + searchTitle + "%"};
         Cursor cursor = db.rawQuery(query, selectionArgs);
         if (cursor != null && cursor.moveToFirst()) {
@@ -110,12 +85,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("title"));
                 @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
                 DaybooksItem daybooksItem = new DaybooksItem(id, title, description);
-                postsList.add(daybooksItem);
+                daybookList.add(daybooksItem);
             } while (cursor.moveToNext());
         }
         if (cursor != null) {
             cursor.close();
         }
-        return postsList;
+        return daybookList;
     }
 }
