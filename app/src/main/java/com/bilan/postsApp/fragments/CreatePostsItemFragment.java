@@ -47,11 +47,9 @@ public class CreatePostsItemFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Spinner spinner = view.findViewById(spinnerCategory);
-        List<String> categories = new ArrayList<>(databaseHelper.getAllCategories());
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this.getContext(),
-                spinner_item_layout,
-                categories
+                spinner_item_layout
         );
         adapter.setDropDownViewResource(simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -66,12 +64,9 @@ public class CreatePostsItemFragment extends Fragment {
                 EditText source = view.findViewById(editTextSource);
                 String selectedItemValue = category.getSelectedItem().toString();
                 int categoryId = databaseHelper.getCategoryIdByName(selectedItemValue);
-                databaseHelper.addPosts(
+                databaseHelper.addNote(
                         title.getText().toString(),
-                        description.getText().toString(),
-                        imgUrl.getText().toString(),
-                        categoryId,
-                        source.getText().toString()
+                        description.getText().toString()
                 );
                 title.clearFocus();
                 title.clearComposingText();

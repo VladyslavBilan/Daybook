@@ -1,5 +1,6 @@
 package com.bilan.postsApp.db;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -21,81 +22,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createCategoriesTableQuery = "CREATE TABLE Categories (id INTEGER PRIMARY KEY, name TEXT)";
-        db.execSQL(createCategoriesTableQuery);
-
-        String createPostsTableQuery = "CREATE TABLE Posts (id INTEGER PRIMARY KEY, title TEXT, description TEXT, image_url TEXT, category_id INTEGER, source TEXT, FOREIGN KEY (category_id) REFERENCES Categories(id))";
+        String createPostsTableQuery = "CREATE TABLE Note (id INTEGER PRIMARY KEY, title TEXT, description TEXT)";
         db.execSQL(createPostsTableQuery);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String dropCategoriesTableQuery = "DROP TABLE IF EXISTS Categories";
-        db.execSQL(dropCategoriesTableQuery);
-        String dropPostsTableQuery = "DROP TABLE IF EXISTS Posts";
-        db.execSQL(dropPostsTableQuery);
+        String dropNoteTableQuery = "DROP TABLE IF EXISTS Posts";
+        db.execSQL(dropNoteTableQuery);
         onCreate(db);
     }
 
-    public List<DaybooksItem> loadAllPosts() {
-        List<DaybooksItem> posts = new ArrayList<>();
+    public List<DaybooksItem> loadAllNote() {
+        List<DaybooksItem> daybook = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
-        String query = "SELECT Posts.id, Posts.title, Posts.source, Posts.image_url, Posts.description, Categories.name AS category_name " +
-                "FROM Posts " +
-                "JOIN Categories ON Posts.category_id = Categories.id ";
+        String query = "SELECT Note.id, Note.title, Note.source, Posts.image_url, Posts.description " +
+                "FROM Posts ";
         Cursor cursor = database.rawQuery(query, null);
 
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                int id = cursor.getInt(cursor.getColumnIndex("id"));
-                String title = cursor.getString(cursor.getColumnIndex("title"));
-                String source = cursor.getString(cursor.getColumnIndex("source"));
-                String imageUrl = cursor.getString(cursor.getColumnIndex("image_url"));
-                String categoryName = cursor.getString(cursor.getColumnIndex("category_name"));
-                String description = cursor.getString(cursor.getColumnIndex("description"));
-                DaybooksItem item = new DaybooksItem(id, title, categoryName, source, imageUrl, description);
-                posts.add(item);
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
+                @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("title"));
+                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
+                DaybooksItem item = new DaybooksItem(id, title, description);
+                daybook.add(item);
             } while (cursor.moveToNext());
         }
         if (cursor != null) {
             cursor.close();
         }
-        return posts;
+        return daybook;
     }
 
     public void deleteArticleById(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         String selection = "id = ?";
         String[] selectionArgs = {String.valueOf(id)};
-        db.delete("Posts", selection, selectionArgs);
+        db.delete("Note", selection, selectionArgs);
     }
 
-    public void addPosts(String title, String description, String imageUrl, int categoryId, String source) {
+    public void addNote(String title, String description) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("title", title);
         values.put("description", description);
-        values.put("image_url", imageUrl);
-        values.put("category_id", categoryId);
-        values.put("source", source);
-        db.insert("Posts", null, values);
-    }
-
-    public List<String> getAllCategories() {
-        SQLiteDatabase db = getReadableDatabase();
-        List<String> categories = new ArrayList<>();
-        String[] projection = {"name"};
-        Cursor cursor = db.query("Categories", projection, null, null, null, null, null);
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                String category = cursor.getString(cursor.getColumnIndex("name"));
-                categories.add(category);
-            } while (cursor.moveToNext());
-        }
-        if (cursor != null) {
-            cursor.close();
-        }
-        return categories;
+        db.insert("Note", null, values);
     }
 
     public void addCategory(String categoryName) {
@@ -105,6 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("Categories", null, values);
     }
 
+    @SuppressLint("Range")
     public int getCategoryIdByName(String categoryName) {
         SQLiteDatabase db = getReadableDatabase();
         int categoryId = -1;
@@ -133,13 +106,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, selectionArgs);
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                int id = cursor.getInt(cursor.getColumnIndex("id"));
-                String title = cursor.getString(cursor.getColumnIndex("title"));
-                String description = cursor.getString(cursor.getColumnIndex("description"));
-                String imageUrl = cursor.getString(cursor.getColumnIndex("image_url"));
-                String categoryName = cursor.getString(cursor.getColumnIndex("category_name"));
-                String source = cursor.getString(cursor.getColumnIndex("source"));
-                DaybooksItem daybooksItem = new DaybooksItem(id, title, categoryName, source, imageUrl, description);
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
+                @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("title"));
+                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
+                DaybooksItem daybooksItem = new DaybooksItem(id, title, description);
                 postsList.add(daybooksItem);
             } while (cursor.moveToNext());
         }

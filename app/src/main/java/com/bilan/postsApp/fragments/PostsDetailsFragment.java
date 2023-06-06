@@ -33,28 +33,13 @@ public class PostsDetailsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_posts_details, container, false);
         Bundle args = getArguments();
         if (args != null) {
-            this.item = new DaybooksItem();
+            this.item = new DaybooksItem(item.getId(), item.getTitle(), item.getDescription());
             item.setTitle(args.getString("title"));
-            item.setCategory(args.getString("category"));
-            item.setSource(args.getString("source"));
-            item.setUrl(args.getString("url"));
             item.setDescription(args.getString("description"));
-
             TextView title = view.findViewById(posts_title);
             title.setText(item.getTitle());
-            TextView category = view.findViewById(R.id.category);
-            category.setText(item.getCategory());
-            TextView source = view.findViewById(R.id.source);
-            source.setText(item.getSource());
             TextView description = view.findViewById(R.id.description);
             description.setText(item.getDescription());
-
-            ImageView image = view.findViewById(R.id.image);
-
-            with(this)
-                    .load(item.getUrl())
-                    .diskCacheStrategy(RESOURCE)
-                    .into(image);
         }
 
         return view;

@@ -45,7 +45,7 @@ public class DayBookListFragment extends Fragment implements OnRecyclerViewItemC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         initRecyclerView();
-        adapter.setPostsList(databaseHelper.loadAllPosts());
+        adapter.setPostsList(databaseHelper.loadAllNote());
         adapter.setDatabaseHelper(databaseHelper);
         adapter.setItemClickListener(this);
         adapter.setRemoveButtonClickListener(this);
@@ -70,7 +70,7 @@ public class DayBookListFragment extends Fragment implements OnRecyclerViewItemC
     @Override
     public void onResume() {
         super.onResume();
-        adapter.setPostsList(databaseHelper.loadAllPosts());
+        adapter.setPostsList(databaseHelper.loadAllNote());
         adapter.notifyDataSetChanged();
     }
 
@@ -87,7 +87,7 @@ public class DayBookListFragment extends Fragment implements OnRecyclerViewItemC
         EditText searchText = rootView.findViewById(searchEditText);
         String searchTextStr = searchText.getText().toString();
         if (searchTextStr.equals("")) {
-            adapter.setPostsList(databaseHelper.loadAllPosts());
+            adapter.setPostsList(databaseHelper.loadAllNote());
         } else {
             List<DaybooksItem> foundArticles = databaseHelper.getPostsByTitle(searchText.getText().toString());
             adapter.setPostsList(foundArticles);
@@ -99,9 +99,6 @@ public class DayBookListFragment extends Fragment implements OnRecyclerViewItemC
     public void onItemClick(DaybooksItem item, View view) {
         Bundle args = new Bundle();
         args.putString("title", item.getTitle());
-        args.putString("category", item.getCategory());
-        args.putString("source", item.getSource());
-        args.putString("url", item.getUrl());
         args.putString("description", item.getDescription());
         findNavController(view).navigate(action_postsListFragment_to_postsDetailsFragment, args);
     }
