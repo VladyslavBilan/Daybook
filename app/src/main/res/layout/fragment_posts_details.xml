@@ -23,6 +23,22 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
+        android:id="@+id/category"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:background="#f2b183"
+        android:paddingLeft="6sp"
+        android:paddingTop="1sp"
+        android:paddingRight="6sp"
+        android:paddingBottom="1sp"
+        android:text="Book"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/source"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <TextView
         android:id="@+id/source"
         android:layout_width="200dp"
         android:layout_height="25dp"
@@ -36,24 +52,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/category"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="221dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:background="#f2b183"
-        android:paddingLeft="6sp"
-        android:paddingTop="1sp"
-        android:paddingRight="6sp"
-        android:paddingBottom="1sp"
-        android:text="Book"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/source"
-        tools:layout_editor_absoluteY="221dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="186dp" />
 
     <ScrollView
             android:layout_width="match_parent"
@@ -70,5 +70,14 @@
                 android:textSize="16sp"
                 android:layout_margin="15dp"/>
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/Title"
+        app:layout_constraintTop_toBottomOf="@+id/posts_title"
+        tools:layout_editor_absoluteX="8dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
