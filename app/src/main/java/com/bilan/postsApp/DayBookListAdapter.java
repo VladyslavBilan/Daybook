@@ -41,16 +41,7 @@ public class DayBookListAdapter extends RecyclerView.Adapter<DayBookListAdapter.
         public void bind(DaybooksItem daybooksItem) {
             this.daybooksItem = daybooksItem;
             postsItemBinding.postsTitle.setText(daybooksItem.getTitle());
-            postsItemBinding.category.setText(daybooksItem.getCategory());
-            postsItemBinding.source.setText(daybooksItem.getSource());
             postsItemBinding.removeButton.setContentDescription(valueOf(daybooksItem.getId()));
-
-            Glide.with(postsItemBinding.postsImage.getContext())
-                    .load(daybooksItem.getUrl())
-                    //.placeholder(R.mipmap.poster_tmp)
-                    //.error(R.drawable.ic_baseline_error_outline_24)
-                    .diskCacheStrategy(RESOURCE)
-                    .into(postsItemBinding.image);
         }
 
         public DaybooksItem getPostsItem() {
