@@ -57,13 +57,7 @@ public class DayBookListFragment extends Fragment implements OnRecyclerViewItemC
                 findNavController(v).navigate(action_postsListFragment_to_postsCreateFragment, null);
             }
         });
-        Button searchButton = rootView.findViewById(buttonSearch);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onSearchButtonClick(rootView);
-            }
-        });
+
         return rootView;
     }
 
@@ -83,17 +77,6 @@ public class DayBookListFragment extends Fragment implements OnRecyclerViewItemC
         }
     }
 
-    public void onSearchButtonClick(View rootView) {
-        EditText searchText = rootView.findViewById(searchEditText);
-        String searchTextStr = searchText.getText().toString();
-        if (searchTextStr.equals("")) {
-            adapter.setPostsList(databaseHelper.loadAllNote());
-        } else {
-            List<DaybooksItem> foundArticles = databaseHelper.getNoteByTitle(searchText.getText().toString());
-            adapter.setPostsList(foundArticles);
-        }
-        adapter.notifyDataSetChanged();
-    }
 
     @Override
     public void onItemClick(DaybooksItem item, View view) {
