@@ -27,21 +27,23 @@
         android:background="#8e9dc7"
         android:elevation="10dp"
         android:text="CREATE NEW NOTE"
-        android:textColor="#FFFFFF"
+        android:textColor="#311B92"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-            android:id="@+id/buttonSearch"
-            android:layout_width="89dp"
-            android:layout_height="34dp"
-            android:background="#8e9dc7"
-            android:textColor="#FFFFFF"
-            android:text="SEARCH"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="4dp" android:layout_marginEnd="4dp"/>
+        android:id="@+id/buttonSearch"
+        android:layout_width="89dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="#8e9dc7"
+        android:text="SEARCH"
+        android:textColor="#311B92"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/searchEditText"

@@ -14,11 +14,8 @@ id category
 id createArticleBtn
 id description
 id editTextDescription
-id editTextImgUrl
-id editTextSource
 id editTextTitle
 id frameLayout
-id image
 id nav_graph
 id nav_host_fragment
 id postsCreateFragment
@@ -31,11 +28,7 @@ id recycler_view_list
 id removeButton
 id searchEditText
 id source
-id spinnerCategory
 id textView
-id textView2
-id textView3
-id textView4
 id textView5
 layout activity_main
 layout fragment_posts_create
