@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.bilan.postsApp.app-mergeDebugResources-3:/layout/activity_main.xml",
+        "source": "com.bilan.postsApp.app-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.bilan.postsApp.app-mergeDebugResources-3:/layout/fragment_posts_create.xml",
+        "source": "com.bilan.postsApp.app-main-6:/layout/fragment_posts_create.xml"
+    },
+    {
+        "merged": "com.bilan.postsApp.app-mergeDebugResources-3:/layout/fragment_posts_details.xml",
+        "source": "com.bilan.postsApp.app-main-6:/layout/fragment_posts_details.xml"
+    },
+    {
+        "merged": "com.bilan.postsApp.app-mergeDebugResources-3:/layout/spinner_item_layout.xml",
+        "source": "com.bilan.postsApp.app-main-6:/layout/spinner_item_layout.xml"
+    },
+    {
+        "merged": "com.bilan.postsApp.app-mergeDebugResources-3:/layout/posts_item.xml",
+        "source": "com.bilan.postsApp.app-main-6:/layout/posts_item.xml"
+    },
+    {
+        "merged": "com.bilan.postsApp.app-mergeDebugResources-3:/layout/fragment_posts_list.xml",
+        "source": "com.bilan.postsApp.app-main-6:/layout/fragment_posts_list.xml"
+    }
+]
