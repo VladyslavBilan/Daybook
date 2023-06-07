@@ -8,7 +8,6 @@ drawable ic_launcher_foreground
 drawable posts_item_gradient
 id action_postsListFragment_to_postsCreateFragment
 id action_postsListFragment_to_postsDetailsFragment
-id buttonSearch
 id buttonSubmit
 id createArticleBtn
 id description
@@ -25,7 +24,6 @@ id posts_image
 id posts_title
 id recycler_view_list
 id removeButton
-id searchEditText
 id textView
 id textView5
 layout activity_main

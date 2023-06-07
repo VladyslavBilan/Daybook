@@ -1985,7 +1985,6 @@ int id bounceBoth 0x7f080063
 int id bounceEnd 0x7f080064
 int id bounceStart 0x7f080065
 int id buttonPanel 0x7f080066
-int id buttonSearch 0x7f080067
 int id buttonSubmit 0x7f080068
 int id cache_measures 0x7f080069
 int id callMeasure 0x7f08006a
@@ -2260,7 +2259,6 @@ int id scrollIndicatorDown 0x7f080176
 int id scrollIndicatorUp 0x7f080177
 int id scrollView 0x7f080178
 int id scrollable 0x7f080179
-int id searchEditText 0x7f08017a
 int id search_badge 0x7f08017b
 int id search_bar 0x7f08017c
 int id search_button 0x7f08017d

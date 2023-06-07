@@ -1986,7 +1986,6 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id buttonPanel
-id buttonSearch
 id buttonSubmit
 id cache_measures
 id callMeasure
@@ -2261,7 +2260,6 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
-id searchEditText
 id search_badge
 id search_bar
 id search_button
