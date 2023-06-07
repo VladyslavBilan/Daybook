@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-import com.bumptech.glide.Glide;
+
 import com.bilan.postsApp.databinding.PostsItemBinding;
 import com.bilan.postsApp.db.DatabaseHelper;
 import com.bilan.postsApp.list.OnRecyclerViewItemClickListener;
@@ -18,22 +18,21 @@ import com.bilan.postsApp.list.OnRemoveButtonClickListener;
 import java.util.List;
 
 import static android.view.LayoutInflater.from;
-import static com.bumptech.glide.load.engine.DiskCacheStrategy.*;
 import static com.bilan.postsApp.databinding.PostsItemBinding.inflate;
 import static java.lang.String.valueOf;
 import static java.util.Collections.*;
 
-public class DayBookListAdapter extends RecyclerView.Adapter<DayBookListAdapter.PostsViewHolder> {
+public class DayBookListAdapter extends RecyclerView.Adapter<DayBookListAdapter.NoteViewHolder> {
     private List<DaybooksItem> mPostsList = emptyList();
     private DatabaseHelper databaseHelper;
     private OnRecyclerViewItemClickListener itemClickListener;
     private OnRemoveButtonClickListener removeButtonClickListener;
 
-    class PostsViewHolder extends ViewHolder {
+    class NoteViewHolder extends ViewHolder {
        private PostsItemBinding postsItemBinding;
        private DaybooksItem daybooksItem;
 
-        public PostsViewHolder(PostsItemBinding binding) {
+        public NoteViewHolder(PostsItemBinding binding) {
             super(binding.getRoot());
             postsItemBinding = binding;
         }
@@ -51,14 +50,14 @@ public class DayBookListAdapter extends RecyclerView.Adapter<DayBookListAdapter.
 
     @NonNull
     @Override
-    public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = from(parent.getContext());
         PostsItemBinding postsItemBinding = inflate(inflater, parent, false);
-        return new PostsViewHolder(postsItemBinding);
+        return new NoteViewHolder(postsItemBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final PostsViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final NoteViewHolder holder, final int position) {
         holder.bind(mPostsList.get(position));
 
         holder.postsItemBinding.removeButton.setOnClickListener(new View.OnClickListener() {
