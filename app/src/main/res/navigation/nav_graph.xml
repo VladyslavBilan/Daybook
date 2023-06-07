@@ -18,7 +18,7 @@
     </fragment>
     <fragment
             android:id="@+id/postsDetailsFragment"
-            android:name="com.bilan.postsApp.fragments.PostsDetailsFragment"
+            android:name="com.bilan.postsApp.fragments.NoteDetailsFragment"
             android:label="fragment_posts_details"
             tools:layout="@layout/fragment_posts_details"/>
     <fragment

@@ -7,20 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bilan.postsApp.DaybooksItem;
 import com.bilan.postsApp.R;
 
-import static com.bumptech.glide.Glide.*;
-import static com.bumptech.glide.load.engine.DiskCacheStrategy.*;
 import static com.bilan.postsApp.R.id.*;
 
-public class PostsDetailsFragment extends Fragment {
+public class NoteDetailsFragment extends Fragment {
     private DaybooksItem item;
 
-    public PostsDetailsFragment() {
+    public NoteDetailsFragment() {
         // Required empty public constructor
     }
 
