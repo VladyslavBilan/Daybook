@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
+    android:backgroundTint="#2196F3"
     tools:context="com.bilan.postsApp.fragments.DayBookListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,8 +14,10 @@
         android:layout_width="411dp"
         android:layout_height="617dp"
         android:layout_marginTop="60dp"
+        android:background="#FFEB3B"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/createArticleBtn"
